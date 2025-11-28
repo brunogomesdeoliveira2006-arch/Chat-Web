@@ -1,28 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Cliente/Servidor</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chat WebSocket • Bot</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="app-container">
-
-    <header class="chat-header">
-        <h1>Chat Cliente/Servidor</h1>
+  <main class="container">
+    <header class="topbar">
+      <h1>Chat • WebSocket</h1>
+      <div class="status-row">
+        <span id="connStatus" class="status disconnected">Desconectado</span>
+        <input id="urlInput" type="text" placeholder="ws://localhost:8080/chat ou wss://SEU_NGROK.io/chat" />
+        <button id="btnConnect">Conectar</button>
+      </div>
     </header>
 
-    <div id="messages" class="messages-area"></div>
+    <section id="chatArea" class="chat-area">
+      <ul id="messages" class="messages"></ul>
+    </section>
 
-    <div class="input-area">
-        <input id="msgInput" type="text" placeholder="Digite sua mensagem...">
-        <button onclick="sendMessage()">Enviar</button>
-    </div>
+    <form id="sendForm" class="send-form">
+      <input id="msgInput" type="text" autocomplete="off" placeholder="Digite sua mensagem..." />
+      <button type="submit">Enviar</button>
+    </form>
 
-</div>
+    <footer class="footer">
+      <small>Conecte ao servidor WebSocket (Tyrus) — use <code>wss://SEU_NGROK</code> para ngrok.</small>
+    </footer>
+  </main>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
